@@ -80,8 +80,8 @@ const AddNotes = (props) => {
                             {/* another anonymous func using */}
                             {/* <button className="btn btn-danger my-2" onClick={handleDel(data.id)}>Delete --- {data.id}</button> */}
 
-                            {/* using Callback */}
-                            <button className="btn btn-danger my-2" onClick={() => handleDel(i)}>Delete --- {data.id}</button>
+                            {/* without callback */}
+                            <button className="btn btn-danger my-2" onClick={() => handleDel(i)}>Delete</button>
                         </div>
                     )
                 })
