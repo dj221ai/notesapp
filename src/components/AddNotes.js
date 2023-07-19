@@ -37,7 +37,7 @@ const AddNotes = (props) => {
 
     // passed anonymous function from button
     const handleDel = (i) => {
-        console.log("this id gonna f**king del !! ", i)
+        console.log("this id gonna del !! ", i)
         const remainingTextBox = [...addTextBox]
         remainingTextBox.splice(i, 1);
         setAddTextBox(remainingTextBox);
