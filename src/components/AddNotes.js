@@ -37,7 +37,7 @@ const AddNotes = (props) => {
 
     // passed anonymous function from button
     const handleDel = (i) => {
-        console.log("this id gonna f**king del !! ", i)
+        console.log("this id gonna del !! ", i)
         const remainingTextBox = [...addTextBox]
         remainingTextBox.splice(i, 1);
         setAddTextBox(remainingTextBox);
@@ -68,12 +68,6 @@ const AddNotes = (props) => {
     const onSaveHandler = (e) => {
         console.log("data is >>> ", addTextBox, getText)
         e.preventDefault();
-        setGetText(prevState => {
-            return [...prevState, {
-                id: Math.random().toString(),
-                // getText: getText
-            }]
-        })
     }
 
     return (
@@ -82,8 +76,8 @@ const AddNotes = (props) => {
             {
                 addTextBox.map((data, i) => {
                     return (
-                        <div className="container my-3 mx-3" style={{"width": "20rem"}} key={data.id} >
-                            <textarea className="form-control" rows="6" value={data} onChange={e => getTextHandler(e,i)}/>
+                        <div className="container my-3 mx-3" style={{"width": "20rem"}} key={i} >
+                            <textarea className="form-control" rows="6" value={data} onChange={e => getTextHandler(e,i)} />
                             <button className="btn btn-success mx-2 my-2" onClick={onSaveHandler}>Save</button>
                             {/* using anonymous function passing values  */}
                             {/* <button className="btn btn-danger my-2" onClick={() => handleDel(data.id)}>Delete --- {data.id}</button> */}
