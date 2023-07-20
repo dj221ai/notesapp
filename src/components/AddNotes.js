@@ -28,7 +28,7 @@ const AddNotes = (props) => {
     }
 
     const getTextHandler = (onChangeValue, i) => {
-        console.log("text area >>>>> ", onChangeValue.target.value );
+        // console.log("text area >>>>> ", onChangeValue.target.value );
         const inputText = [...addTextBox]
         inputText[i] = onChangeValue.target.value;
         setAddTextBox(inputText)
@@ -65,9 +65,13 @@ const AddNotes = (props) => {
     // )
 
     
-    const onSaveHandler = (e) => {
+    const onSaveHandler = (e, i) => {
         console.log("data is >>> ", addTextBox, getText)
-        e.preventDefault();
+        // e.preventDefault();
+        // console.log("e is ", i)
+        const writtenText = [...addTextBox]
+        // console.log("written texr is >>> ", writtenText[i])
+        localStorage.setItem(i, writtenText[i])
     }
 
     return (
@@ -78,7 +82,7 @@ const AddNotes = (props) => {
                     return (
                         <div className="container my-3 mx-3" style={{"width": "20rem"}} key={i} >
                             <textarea className="form-control" rows="6" value={data} onChange={e => getTextHandler(e,i)} />
-                            <button className="btn btn-success mx-2 my-2" onClick={onSaveHandler}>Save</button>
+                            <button className="btn btn-success mx-2 my-2" onClick={e => onSaveHandler(e, i)}>Save</button>
                             {/* using anonymous function passing values  */}
                             {/* <button className="btn btn-danger my-2" onClick={() => handleDel(data.id)}>Delete --- {data.id}</button> */}
 
